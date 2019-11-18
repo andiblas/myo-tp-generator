@@ -4,6 +4,7 @@ import com.ungs.myogenerator.commandline.CommandLineOptions;
 import com.ungs.myogenerator.commandline.CommandLineParser;
 import com.ungs.myogenerator.generator.TuplesGenerator;
 import com.ungs.myogenerator.generator.TuplesResult;
+import com.ungs.myogenerator.printer.TuplesPrinter;
 
 public class Main {
 
@@ -14,6 +15,7 @@ public class Main {
         TuplesGenerator tuplesGenerator = new TuplesGenerator();
         TuplesResult tuplesResult = tuplesGenerator.generate(options);
 
-        System.out.println("tuplesResult = " + tuplesResult.getInputS());
+        TuplesPrinter printer = new TuplesPrinter();
+        printer.printResultToFiles(tuplesResult);
     }
 }

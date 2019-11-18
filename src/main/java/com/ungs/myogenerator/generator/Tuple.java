@@ -7,13 +7,13 @@ import java.util.Objects;
 public class Tuple {
     private List<Float> values;
 
-    public Tuple(int size) {
+    Tuple(int size) {
         values = new ArrayList<>(size);
     }
 
     @Override
     public String toString() {
-        return "Tuple{" + values + '}';
+        return values.toString();
     }
 
     @Override
@@ -29,11 +29,11 @@ public class Tuple {
         return Objects.hash(getValues());
     }
 
-    public List<Float> getValues() {
+    private List<Float> getValues() {
         return values;
     }
 
-    public void addValue(Float value) {
+    void addValue(Float value) {
         this.values.add(value);
     }
 }
