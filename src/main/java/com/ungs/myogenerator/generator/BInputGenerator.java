@@ -8,7 +8,7 @@ import java.util.List;
 class BInputGenerator {
     void generate(CommandLineOptions options, TuplesResult result) {
         for (Tuple sTuple : result.getInputS()) {
-            List<Tuple> tupleList = new ArrayList();
+            List<Tuple> tupleList = new ArrayList<>();
             tupleList.add(new Tuple(options.getSize()));
             result.getInputB().addAll(createTupleTree(sTuple, tupleList, 0));
         }
