@@ -34,5 +34,4 @@ public class TuplesPrinter {
             e.printStackTrace();
         }
     }
-
 }

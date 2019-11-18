@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Tuple {
+public class Tuple implements Cloneable {
     private List<Float> values;
 
     Tuple(int size) {
@@ -29,7 +29,16 @@ public class Tuple {
         return Objects.hash(getValues());
     }
 
-    private List<Float> getValues() {
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Tuple clone = new Tuple(this.values.size());
+        for (Float value : this.values) {
+            clone.addValue(value);
+        }
+        return clone;
+    }
+
+    List<Float> getValues() {
         return values;
     }
 
