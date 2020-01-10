@@ -11,7 +11,7 @@ public class TuplesGenerator {
         TuplesResult result = new TuplesResult();
 
         sGenerator.generate(options, result);
-        bGenerator.generate(options, result);
+        //bGenerator.generate(options, result);
 
         return result;
     }

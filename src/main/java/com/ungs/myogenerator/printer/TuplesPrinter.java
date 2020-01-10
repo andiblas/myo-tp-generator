@@ -1,5 +1,6 @@
 package com.ungs.myogenerator.printer;
 
+import com.ungs.myogenerator.commandline.CommandLineOptions;
 import com.ungs.myogenerator.generator.Tuple;
 import com.ungs.myogenerator.generator.TuplesResult;
 
@@ -12,13 +13,22 @@ import java.util.Set;
 
 public class TuplesPrinter {
 
-    public void printResultToFiles(TuplesResult tuplesResult) {
-        printResultToFile("inputS.txt", tuplesResult.getInputS());
-        printResultToFile("inputB.txt", tuplesResult.getInputB());
+    public void printResultToFiles(TuplesResult tuplesResult, CommandLineOptions options) {
+        printResultToFile("inputS.txt", tuplesResult.getInputS(), options);
+        //printResultToFile("inputB.txt", tuplesResult.getInputB());
     }
 
-    private void printResultToFile(String filePath, Set<Tuple> tuples) {
+    private void printResultToFile(String filePath, Set<Tuple> tuples, CommandLineOptions options) {
         StringBuilder sb = new StringBuilder();
+
+        sb.append(options.getSize()).append(System.lineSeparator());
+
+        sb.append("\"<");
+        for (int i = 1; i <= options.getSize(); i++) {
+            sb.append(i).append("n,");
+        }
+        sb.deleteCharAt(sb.length() - 1).append(">\"").append(System.lineSeparator());
+
         for (Tuple tuple : tuples) {
             String stringTuple = tuple.toString()
                     .replace("[", "")

@@ -2,25 +2,26 @@ package com.ungs.myogenerator.generator;
 
 import com.ungs.myogenerator.commandline.CommandLineOptions;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 class SInputGenerator {
-    private final List<Float> acceptedSValues = Arrays.asList(0f, 0.5f, 1f);
-
     void generate(CommandLineOptions options, TuplesResult result) {
         while (result.getInputS().size() != options.getLength()) {
             Tuple tuple = new Tuple(options.getSize());
             for (int i = 0; i < options.getSize(); i++) {
-                tuple.addValue(getRandomElement());
+                tuple.addValue(getRandomElement(options.getProbability()));
             }
             result.getInputS().add(tuple);
         }
     }
 
-    private Float getRandomElement() {
+    private Float getRandomElement(float probability) {
         Random rand = new Random();
-        return acceptedSValues.get(rand.nextInt(acceptedSValues.size()));
+        float zeroBound = probability + ((100 - probability) / 2);
+        int chosenProb = rand.nextInt(99);
+        if (chosenProb <= probability) return 0.5F;
+        else if (probability < chosenProb && chosenProb <= zeroBound) return 0F;
+        else if (zeroBound < chosenProb && chosenProb <= 100) return 1F;
+        return 0F;
     }
 }

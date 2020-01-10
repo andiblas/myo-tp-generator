@@ -1,12 +1,14 @@
 package com.ungs.myogenerator.commandline;
 
 public class CommandLineOptions {
-    private Integer size;
-    private Integer length;
+    private final Integer size;
+    private final Integer length;
+    private final Integer probability;
 
-    public CommandLineOptions(Integer size, Integer length) {
+    public CommandLineOptions(Integer size, Integer length, Integer probability) {
         this.size = size;
         this.length = length;
+        this.probability = probability;
     }
 
     public Integer getSize() {
@@ -15,5 +17,9 @@ public class CommandLineOptions {
 
     public Integer getLength() {
         return length;
+    }
+
+    public float getProbability() {
+        return probability;
     }
 }

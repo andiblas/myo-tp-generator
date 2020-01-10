@@ -16,6 +16,6 @@ public class Main {
         TuplesResult tuplesResult = tuplesGenerator.generate(options);
 
         TuplesPrinter printer = new TuplesPrinter();
-        printer.printResultToFiles(tuplesResult);
+        printer.printResultToFiles(tuplesResult, options);
     }
 }

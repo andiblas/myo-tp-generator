@@ -20,6 +20,10 @@ public class CommandLineParser {
         output.setRequired(true);
         options.addOption(output);
 
+        Option probability = new Option("p", "probability", true, "Probability of generating '0.5' value in input.");
+        probability.setRequired(true);
+        options.addOption(probability);
+
         org.apache.commons.cli.CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd = null;
@@ -35,7 +39,8 @@ public class CommandLineParser {
 
         return new CommandLineOptions(
                 Integer.parseInt(cmd.getOptionValue("size")),
-                Integer.parseInt(cmd.getOptionValue("length"))
+                Integer.parseInt(cmd.getOptionValue("length")),
+                Integer.parseInt(cmd.getOptionValue("probability"))
         );
     }
 }
