@@ -15,7 +15,6 @@ public class TuplesPrinter {
 
     public void printResultToFiles(TuplesResult tuplesResult, CommandLineOptions options) {
         printResultToFile("inputS.txt", tuplesResult.getInputS(), options);
-        //printResultToFile("inputB.txt", tuplesResult.getInputB());
     }
 
     private void printResultToFile(String filePath, Set<Tuple> tuples, CommandLineOptions options) {
