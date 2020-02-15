@@ -17,6 +17,7 @@ class SInputGenerator {
 
     private Float getRandomElement(float probability) {
         Random rand = new Random();
+        probability = probability * 100;
         float zeroBound = probability + ((100 - probability) / 2);
         int chosenProb = rand.nextInt(99);
         if (chosenProb <= probability) return 0.5F;

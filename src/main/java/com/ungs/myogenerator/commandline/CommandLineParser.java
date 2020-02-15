@@ -40,7 +40,7 @@ public class CommandLineParser {
         return new CommandLineOptions(
                 Integer.parseInt(cmd.getOptionValue("size")),
                 Integer.parseInt(cmd.getOptionValue("length")),
-                Integer.parseInt(cmd.getOptionValue("probability"))
+                Float.parseFloat(cmd.getOptionValue("probability"))
         );
     }
 }
